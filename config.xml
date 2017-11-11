@@ -6,7 +6,7 @@
     <universal-links>
         <host name="https://sqr96.app.goo.gl/" scheme="https" />
         <host name="rugby-974.firebaseapp.com" scheme="https">
-            <path url="/__/auth/callback"/>
+            <path url="/__/auth/callback" />
         </host>
     </universal-links>
     <content src="index.html" />

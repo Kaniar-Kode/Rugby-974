@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { AngularFireAuth } from 'angularfire2/auth';
 
+import firebase from 'firebase';
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -25,6 +27,18 @@ export class LoginPage {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  loginFacebook() {
+    let provider = new firebase.auth.FacebookAuthProvider();
+
+    firebase.auth().signInWithRedirect(provider).then(() => {
+      firebase.auth().getRedirectResult().then(result => {
+        alert(JSON.stringify(result));
+      }).catch(function (error) {
+        alert(JSON.stringify(error));
+      });
+    });
   }
 
 }
