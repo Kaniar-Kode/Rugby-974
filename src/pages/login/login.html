@@ -12,11 +12,15 @@
         <ion-input type="text" name="email" [(ngModel)]="user.email"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-icon name="ios-key-outline" item-left></ion-icon>
+        <ion-icon name="ios-key-outline" item-left></ion-icon>
         <ion-input type="password" name="password" [(ngModel)]="user.password"></ion-input>
       </ion-item>
       <button ion-button block type="submit" color="secondary" (click)="login(user)">Login</button>
     </form>
-    <button ion-button block type="submit">Login with Facebook</button>
+
+    <button ion-button block type="submit" class="facebook">
+      <ion-icon name="logo-facebook"></ion-icon>
+      &ensp; Login with Facebook
+    </button>
   </div>
 </ion-content>
