@@ -11,4 +11,16 @@ export class HomePage {
 
   }
 
+  goNews() {
+    this.navCtrl.push('NewsPage');
+  }
+
+  goResults() {
+    this.navCtrl.push('ResultsPage');
+  }
+
+  goCalendar() {
+    this.navCtrl.push('CalendarPage');
+  }
+
 }

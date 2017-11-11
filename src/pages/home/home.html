@@ -6,8 +6,8 @@
   <br/>
   
   <div>
-      <button ion-button block>Actualit&eacute;s</button>
-      <button ion-button block color="danger">R&eacute;sultats</button>
-      <button ion-button block color="dark">Calendrier</button>
+      <button ion-button block (click)="goNews()">Actualit&eacute;s</button>
+      <button ion-button block color="danger" (click)="goResults()">R&eacute;sultats</button>
+      <button ion-button block color="dark" (click)="goCalendar()">Calendrier</button>
     </div>
 </ion-content>
