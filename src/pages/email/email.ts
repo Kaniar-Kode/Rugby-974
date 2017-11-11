@@ -17,9 +17,9 @@ export class EmailPage {
     console.log('ionViewDidLoad EmailPage');
   }
 
-  async logout() {
+  logout() {
     try {
-      const result = this.afAuth.auth.signOut();
+      let result = this.afAuth.auth.signOut();
 
       if (result) {
         this.navCtrl.popToRoot();
@@ -27,5 +27,9 @@ export class EmailPage {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  createMessage() {
+    this.navCtrl.push("MessagePage");
   }
 }
