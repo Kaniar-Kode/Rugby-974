@@ -1,12 +1,13 @@
 <ion-header>
-  <ion-item>
-    <ion-title>EmailPage</ion-title>
-    <button ion-button large clear item-right (click)="logout()">
-      <ion-icon name="md-log-out" color="danger"></ion-icon>
-    </button>
-  </ion-item>
+  <ion-navbar hideBackButton>
+    <ion-title>Email Page</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="md-log-out" color="danger"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
-
 
 <ion-content padding>
   <div class="logo-crr">
@@ -16,9 +17,9 @@
   <br/>
 
   <div>
-    <button ion-button block class="input-result">Saisir résultat</button>
-    <button ion-button block class="create-message" (click)="createMessage()">Cr&eacute;er message</button>
-    <button ion-button block class="edit-calendar">&Eacute;diter calendrier</button>
-    <button ion-button block class="settings">Param&egrave;tres</button>
+    <button ion-button block color="blue-crr">Saisir résultat</button>
+    <button ion-button block color="green-crr" (click)="createMessage()">Cr&eacute;er message</button>
+    <button ion-button block color="yellow-crr">&Eacute;diter calendrier</button>
+    <button ion-button block color="red-crr">Param&egrave;tres</button>
   </div>
 </ion-content>
