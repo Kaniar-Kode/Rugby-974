@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { User } from '../../models/user.interface';
 
 
 @IonicPage()
@@ -10,14 +11,10 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 })
 export class NewsPage {
 
-  songs: AngularFireList<any>;
+  user: AngularFireList<User>;
 
   constructor(public navCtrl: NavController, afDatabase: AngularFireDatabase) {
-    
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NewsPage');
+    afDatabase.list('login').valueChanges().subscribe(console.log);
   }
 
 }

@@ -13,10 +13,6 @@ export class EmailPage {
   constructor(public navCtrl: NavController, private afAuth: AngularFireAuth) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EmailPage');
-  }
-
   logout() {
     try {
       let result = this.afAuth.auth.signOut();

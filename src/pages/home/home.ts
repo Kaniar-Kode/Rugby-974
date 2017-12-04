@@ -19,6 +19,10 @@ export class HomePage {
     this.navCtrl.push('ResultsPage');
   }
 
+  goRanking() {
+    this.navCtrl.push('RankingPage');
+  }
+
   goCalendar() {
     this.navCtrl.push('CalendarPage');
   }
