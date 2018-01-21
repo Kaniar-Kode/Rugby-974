@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { DatePicker } from '@ionic-native/date-picker'
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
@@ -13,6 +14,7 @@ import { AngularFireModule } from 'angularfire2';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     LoginPage
   ],
   providers: [
+    DatePicker,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

@@ -1,20 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { User } from '../../models/user.interface';
+
+import { Season } from './season';
+
 
 
 @IonicPage()
 @Component({
   selector: 'page-news',
-  templateUrl: 'news.html',
+  templateUrl: 'news.html'
 })
-export class NewsPage {
+export class NewsPage implements OnInit {
 
-  user: AngularFireList<User>;
+  season: Season = new Season();
 
-  constructor(public navCtrl: NavController, afDatabase: AngularFireDatabase) {
-    afDatabase.list('login').valueChanges().subscribe(console.log);
+  constructor(
+    public navCtrl: NavController
+  ) {
+
+  }
+
+  ngOnInit(): void {
+
+  }
+
+  showListSeasons(): void {
+    this.season.listSeasons = true;
+    this.season.editSeason = false;
+    this.season.createSeason = false;
+  }
+
+  createSeason(): void {
+    this.season.listSeasons = false;
+    this.season.editSeason = false;
+    this.season.createSeason = true;
   }
 
 }

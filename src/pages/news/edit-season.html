@@ -1,0 +1,56 @@
+<div *ngIf="setSeason.editSeason">
+    <ion-grid>
+        <ion-row>
+            <button ion-button large clear icon-only icon-start color="dark" (click)="previousWeek()">
+                <ion-icon name="ios-arrow-dropleft-circle"></ion-icon>
+            </button>
+            <ion-label text-center> Semaine {{indexArray}} </ion-label>
+            <button ion-button large clear icon-only icon-start color="dark" (click)="nextWeek()">
+                <ion-icon name="ios-arrow-dropright-circle"></ion-icon>
+            </button>
+        </ion-row>
+
+
+
+        <ion-row>
+            <ion-label text-center>{{setSeason.category}}</ion-label>
+        </ion-row>
+        <ion-row>
+            <ion-label text-center>Phase AR</ion-label>
+        </ion-row>
+        <ion-row justify-content-center align-items-center style="height: 100%">
+            <button ion-button type="submit" color="light" (click)="chooseDate()">
+                <ion-icon name="md-calendar"></ion-icon>
+            </button>
+        </ion-row>
+
+        <ion-row class="row" responsive-sm wrap>
+            <ion-item>
+                <ion-thumbnail item-start (click)="chooseTeam()">
+                    <img src="{{path + fName + extension}}">
+                </ion-thumbnail>
+                <ion-label text-center>23 - 19</ion-label>
+                <ion-thumbnail item-end (click)="chooseTeam()">
+                    <img src="{{'assets/imgs/' + fileName + '.png'}}">
+                </ion-thumbnail>
+            </ion-item>
+        </ion-row>
+
+        <ion-row class="row" responsive-sm wrap *ngFor="let t of myArray[indexArray]; let i = index">
+            <ion-item>
+                {{t}}
+            </ion-item>
+        </ion-row>
+
+
+        <ion-row>
+            <ion-label text-center>IF EXEMPT</ion-label>
+            <ion-item>
+                <ion-thumbnail item-start>
+                    <img src="{{'../../assets/imgs/' + fileName + '.png'}}" alt="Exempt Team">
+                </ion-thumbnail>
+            </ion-item>
+        </ion-row>
+
+    </ion-grid>
+</div>

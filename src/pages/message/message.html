@@ -1,14 +1,34 @@
 <ion-header>
   <ion-navbar>
-    <ion-item>
-        <ion-title>Message</ion-title>
-        <button ion-button small clear item-right (click)="presentAlert()">
-          <ion-icon name="ios-chatboxes-outline"></ion-icon>
-        </button>
-      </ion-item>
+    <ion-title>Message</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="createMessage()">
+        <ion-icon name="md-add" color="primairy"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+  <div>
+    <ion-list>
+      <ion-item-sliding *ngFor="let message of messages | async">
+        <ion-item>
+          {{message.title}}
+          <br/> {{message.subtitle}}
+        </ion-item>
+
+        <ion-item-options>
+          <button ion-button icon-only color="light" (click)="editMessage(message.id)">
+            <ion-icon name="md-create"></ion-icon>
+          </button>
+          <button ion-button icon-only color="danger" (click)="deleteMessage(message.id)">
+            <ion-icon name="md-trash"></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
 
 </ion-content>

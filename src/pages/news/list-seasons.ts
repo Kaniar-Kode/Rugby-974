@@ -1,32 +1,37 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Rx';
 
-@IonicPage()
-@Component({
-  selector: 'page-message',
-  templateUrl: 'message.html',
-})
-export class MessagePage {
+import { Season } from './season';
 
-  messagesList: AngularFireList<any>;
-  messages: Observable<any[]>;
+
+@Component({
+  selector: 'list-seasons',
+  templateUrl: 'list-seasons.html'
+})
+export class ListSeasonsComponent {
+
+  seasonsList: AngularFireList<any>;
+  seasons: Observable<any[]>;
 
   constructor(
     public afDatabase: AngularFireDatabase,
     public alertCtrl: AlertController
   ) {
-    this.messagesList = this.afDatabase.list('/messages');
-    this.messages = this.messagesList.valueChanges();
+    this.seasonsList = this.afDatabase.list('/list-seasons');
+    this.seasons = this.seasonsList.valueChanges();
   }
 
-  createMessage(): void {
+  ngOnInit(): void {
+
+  }
+
+  createSeason(): void {
     let prompt = this.alertCtrl.create({
-      title: 'Message Name',
-      message: "Enter your message",
+      title: 'Song Name',
+      message: "Enter a name for this new song you're so keen on adding",
       inputs: [
         {
           name: 'title',
@@ -47,10 +52,10 @@ export class MessagePage {
         {
           text: 'Save',
           handler: data => {
-            const newMessageRef = this.messagesList.push({});
+            const newSeasonRef = this.seasonsList.push({});
 
-            newMessageRef.set({
-              id: newMessageRef.key,
+            newSeasonRef.set({
+              id: newSeasonRef.key,
               title: data.title,
               subtitle: data.subtitle
             });
@@ -61,14 +66,14 @@ export class MessagePage {
     prompt.present();
   }
 
-  deleteMessage(messageID: string): void {
-    this.messagesList.remove(messageID);
+  deleteSeason(seasonID: string) {
+    this.seasonsList.remove(seasonID);
   }
 
-  editMessage(messageID: string): void {
+  editSeason(seasonID: string) {
     let prompt = this.alertCtrl.create({
-      title: 'Message Name',
-      message: "Tap your message",
+      title: 'Season Name',
+      message: "Update the season",
       inputs: [
         {
           name: 'title',
@@ -89,7 +94,7 @@ export class MessagePage {
         {
           text: 'Save',
           handler: data => {
-            this.messagesList.update(messageID, {
+            this.seasonsList.update(seasonID, {
               title: data.title,
               subtitle: data.subtitle,
             });

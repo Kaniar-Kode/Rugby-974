@@ -1,0 +1,39 @@
+<div *ngIf="newSeason.createSeason">
+    <ion-item>
+        <ion-label>Ann&eacute;e</ion-label>
+        <ion-select [(ngModel)]="newSeason.year">
+            <ion-option *ngFor="let year of initSeasons.years" [value]="year">{{year}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>Cat&eacute;gorie</ion-label>
+        <ion-select [(ngModel)]="newSeason.category">
+            <ion-option *ngFor="let category of initSeasons.categories" [value]="category">{{category}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>&Eacute;quipes</ion-label>
+        <ion-select [(ngModel)]="newSeason.nTeams">
+            <ion-option *ngFor="let team of initSeasons.numberTeams" [value]="nTeams">{{team}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>Phase</ion-label>
+        <ion-select [(ngModel)]="newSeason.nPhases">
+            <ion-option *ngFor="let phase of initSeasons.numberPhases" [value]="nPhases">{{phase}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>Dur&eacute;e d'une phase</ion-label>
+        <ion-select [(ngModel)]="newSeason.nWeeks">
+            <ion-option *ngFor="let week of initSeasons.numberWeeks" [value]="nWeeks">{{week}} semaines</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-footer>
+        <button ion-button block type="submit" color="secondary" (click)="buildSeason()">
+            <ion-icon name="ios-hammer"></ion-icon>
+            &ensp; Cr&eacute;er calendrier
+        </button>
+    </ion-footer>
+</div>

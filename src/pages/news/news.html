@@ -2,11 +2,22 @@
 
   <ion-navbar>
     <ion-title>NewsPage</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showListSeasons()">
+        <ion-icon name="md-list-box" color="primairy"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="createSeason()">
+        <ion-icon name="md-add-circle" color="primairy"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <list-seasons *ngIf="season.listSeasons"></list-seasons>
+  <create-season [newSeason]="season"></create-season>
+  <edit-season [setSeason]="season"></edit-season>
 </ion-content>
